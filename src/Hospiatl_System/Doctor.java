@@ -4,7 +4,6 @@
  */
 package Hospiatl_System;
 
-import com.mysql.cj.protocol.Resultset;
 import java.awt.Component;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -125,14 +124,14 @@ public class Doctor implements DB{
     }
 
     
-    public static Resultset CheckLoginData(String email)
+    public static ResultSet CheckLoginData(String email)
     {
         try {
             String sql = "SELECT pass,ID FROM Doctors WHERE email = (?)";
             PreparedStatement Login = con.prepareStatement(sql);
             Login.setString(1, email);
             rs = Login.executeQuery();      
-                return (Resultset) rs;
+                return (ResultSet) rs;
         } catch (SQLException | NullPointerException ex ) {
                 return null; 
             }

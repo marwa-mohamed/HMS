@@ -5,7 +5,6 @@
 package Hospiatl_System;
 
 import java.sql.*;
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 /**
@@ -307,7 +306,7 @@ public class Patient_Registration extends javax.swing.JFrame {
         // TODO add your handling code here:
         setDefaultCloseOperation(Patient_Registration.HIDE_ON_CLOSE);
         dispose();
-        new RegistrationChoices().setVisible(true);
+        new Main_screen().setVisible(true);
     }//GEN-LAST:event_Back2MouseClicked
 
     /**
