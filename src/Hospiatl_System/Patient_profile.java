@@ -4,6 +4,8 @@
  */
 package Hospiatl_System;
 
+import com.toedter.calendar.JCalendar;
+import com.toedter.calendar.JDateChooser;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -95,10 +97,9 @@ public class Patient_profile extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         Time = new javax.swing.JTextField();
-        Date = new javax.swing.JTextField();
-        cancel = new javax.swing.JCheckBox();
-        jLabel2 = new javax.swing.JLabel();
+        Datet = new javax.swing.JTextField();
         Edit = new javax.swing.JButton();
+        Delete = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -539,7 +540,7 @@ public class Patient_profile extends javax.swing.JFrame {
         Options.addTab("", View_Docotr);
 
         Book.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
-        Book.setText("Book / Update");
+        Book.setText("Book / Update ");
         Book.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BookMouseClicked(evt);
@@ -580,12 +581,6 @@ public class Patient_profile extends javax.swing.JFrame {
         jLabel26.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         jLabel26.setText("Date");
 
-        cancel.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
-        cancel.setText("Cancel");
-
-        jLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
-        jLabel2.setText("Status");
-
         Edit.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         Edit.setText("Edit");
         Edit.addActionListener(new java.awt.event.ActionListener() {
@@ -594,36 +589,40 @@ public class Patient_profile extends javax.swing.JFrame {
             }
         });
 
+        Delete.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        Delete.setText("Delete");
+        Delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DeleteMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout make_appointmentLayout = new javax.swing.GroupLayout(make_appointment);
         make_appointment.setLayout(make_appointmentLayout);
         make_appointmentLayout.setHorizontalGroup(
             make_appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(make_appointmentLayout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(Book)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(105, 105, 105))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, make_appointmentLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(make_appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel19)
                     .addComponent(jLabel24)
                     .addComponent(jLabel26)
-                    .addComponent(jLabel25)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
+                    .addComponent(jLabel25))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addGroup(make_appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(make_appointmentLayout.createSequentialGroup()
-                        .addComponent(cancel)
-                        .addContainerGap(250, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, make_appointmentLayout.createSequentialGroup()
-                        .addGroup(make_appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Specializations, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(names, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Time)
-                            .addComponent(Date, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(68, 68, 68))))
-            .addGroup(make_appointmentLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(Book)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97))
+                    .addComponent(Delete)
+                    .addGroup(make_appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(Specializations, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(names, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Time)
+                        .addComponent(Datet, javax.swing.GroupLayout.Alignment.TRAILING)))
+                .addGap(68, 68, 68))
         );
         make_appointmentLayout.setVerticalGroup(
             make_appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -639,20 +638,18 @@ public class Patient_profile extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(make_appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(Date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Datet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(make_appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
                     .addComponent(Time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(make_appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cancel)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addGroup(make_appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Book, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(365, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(335, Short.MAX_VALUE))
         );
 
         Options.addTab("", make_appointment);
@@ -836,18 +833,18 @@ public class Patient_profile extends javax.swing.JFrame {
         // TODO add your handling code here:
         String department =  Specializations.getSelectedItem().toString();
         String D_name = names.getSelectedItem().toString();
-        String Date = this.Date.getText();
+        String Date = this.Datet.getText();
         String Time = this.Time.getText();
-        boolean status = cancel.isSelected();
-        String cancel = "";
-        
-        if (status)
-            cancel = "Cancelled";
-
-        else
-            cancel = "Not Cancelled";
+//        boolean status = cancel.isSelected();
+//        String cancel = "";
+//        
+//        if (status)
+//            cancel = "Cancelled";
+//
+//        else
+//            cancel = "Not Cancelled";
                
-        appointment a = new appointment(Patient_id, D_name,department , Date, Time, cancel);
+        appointment a = new appointment(Patient_id, D_name,department , Date, Time);
         Patient.con = DB.connect();
         try {
             if (appointment_id != -1)
@@ -857,7 +854,7 @@ public class Patient_profile extends javax.swing.JFrame {
             }
             else
             {
-                Patient.BookAppointmetn(a);
+                Patient.checkappointment(a);
                 appointment_id = Patient.count;
             }
         } catch (Exception ex) {
@@ -866,6 +863,12 @@ public class Patient_profile extends javax.swing.JFrame {
         }
         DB.Disconnect(Patient.con);
     }//GEN-LAST:event_BookMouseClicked
+
+    private void DeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteMouseClicked
+        // TODO add your handling code here:
+        appointment_id =  Integer.parseInt(JOptionPane.showInputDialog(this, "Enter appointment ID"));
+        Delete(appointment_id);
+    }//GEN-LAST:event_DeleteMouseClicked
 
     private void put_patient_data()
     {
@@ -901,13 +904,29 @@ public class Patient_profile extends javax.swing.JFrame {
             put.setInt(1, id);
             rs = put.executeQuery();
             rs.next();
-            Date.setText(rs.getString(5));
+            Datet.setText(rs.getString(5));
             Time.setText(rs.getString(6));
             Specializations.setSelectedItem(rs.getString(4));
         } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(this,"Appointment ID not found");  
         } 
         DB.Disconnect(Patient.con);
+    }
+    
+        private void Delete(int id)
+    {
+        con = DB.connect();
+        try{  
+            String sql = "delete from Appointments where ID = ?";
+            PreparedStatement delete = con.prepareStatement(sql);
+            delete.setInt(1, id);
+            System.out.println(delete);
+            delete.execute();
+            JOptionPane.showMessageDialog(this,"Appointment Deleted successfully");  
+        } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this,"Appointment ID not found");  
+        } 
+        DB.Disconnect(con);
     }
     
     private void ClearData()
@@ -920,6 +939,14 @@ public class Patient_profile extends javax.swing.JFrame {
         E_pass.setText("");
         E_age.setText("");
         E_address.setText("");   
+    }
+    
+      private void clear_appointment_info()
+    {
+            Datet.setText("");
+            Time.setText("");
+            Specializations.setSelectedIndex(-1);
+            names.setSelectedIndex(-1);
     }
     /**
      * @param args the command line arguments
@@ -965,7 +992,8 @@ public class Patient_profile extends javax.swing.JFrame {
     private javax.swing.JLabel Booking;
     private javax.swing.JPanel Choices;
     private javax.swing.JLabel D_ID;
-    private javax.swing.JTextField Date;
+    private javax.swing.JTextField Datet;
+    private javax.swing.JButton Delete;
     private javax.swing.JTable Doctor;
     private javax.swing.JLabel Doctors;
     private javax.swing.JTextField E_address;
@@ -990,7 +1018,6 @@ public class Patient_profile extends javax.swing.JFrame {
     private javax.swing.JButton UpdateDetails;
     private javax.swing.JPanel Update_details;
     private javax.swing.JPanel View_Docotr;
-    private javax.swing.JCheckBox cancel;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel15;
@@ -998,7 +1025,6 @@ public class Patient_profile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;

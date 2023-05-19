@@ -30,6 +30,8 @@ public class Admin_profile extends javax.swing.JFrame {
         Updating = new javax.swing.JLabel();
         LogOut = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
+        AddAdmin = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JSeparator();
         Options = new javax.swing.JTabbedPane();
         update = new javax.swing.JPanel();
         Update = new javax.swing.JPanel();
@@ -144,6 +146,21 @@ public class Admin_profile extends javax.swing.JFrame {
             }
         });
 
+        AddAdmin.setFont(new java.awt.Font("Liberation Mono", 0, 18)); // NOI18N
+        AddAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        AddAdmin.setText("Add Admin");
+        AddAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddAdminMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddAdminMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AddAdminMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout ChoicesLayout = new javax.swing.GroupLayout(Choices);
         Choices.setLayout(ChoicesLayout);
         ChoicesLayout.setHorizontalGroup(
@@ -154,12 +171,14 @@ public class Admin_profile extends javax.swing.JFrame {
                     .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSeparator2)
                     .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator7, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(ChoicesLayout.createSequentialGroup()
                         .addGroup(ChoicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ADD)
                             .addComponent(Appointments)
                             .addComponent(Updating)
-                            .addComponent(LogOut))
+                            .addComponent(LogOut)
+                            .addComponent(AddAdmin))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(ChoicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,6 +207,10 @@ public class Admin_profile extends javax.swing.JFrame {
                 .addComponent(Appointments)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AddAdmin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LogOut)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -697,6 +720,22 @@ public class Admin_profile extends javax.swing.JFrame {
         DeleteDate();
     }//GEN-LAST:event_EditMouseClicked
 
+    private void AddAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddAdminMouseClicked
+        // TODO add your handling code here:
+        setDefaultCloseOperation(Admin_profile.HIDE_ON_CLOSE);
+        new Admin_registration().setVisible(true);
+    }//GEN-LAST:event_AddAdminMouseClicked
+
+    private void AddAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddAdminMouseEntered
+        // TODO add your handling code here:
+        AddAdmin.setText("<html><u>Add Admin</u></html>");
+    }//GEN-LAST:event_AddAdminMouseEntered
+
+    private void AddAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddAdminMouseExited
+        // TODO add your handling code here:
+        AddAdmin.setText("Add Admin");
+    }//GEN-LAST:event_AddAdminMouseExited
+
     
     private void DeleteDate()
     {
@@ -748,6 +787,7 @@ public class Admin_profile extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ADD;
     private javax.swing.JPanel Add;
+    private javax.swing.JLabel AddAdmin;
     private javax.swing.JTextField Age;
     private javax.swing.JTable Appointment;
     private javax.swing.JLabel Appointments;
@@ -800,6 +840,7 @@ public class Admin_profile extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JPanel records;
     private javax.swing.JPanel update;
     // End of variables declaration//GEN-END:variables

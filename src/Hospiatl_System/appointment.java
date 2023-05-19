@@ -12,15 +12,14 @@ package Hospiatl_System;
  */
 public class appointment {
     int P_id;
-    String D_name, department, Date, Time,status;
-    appointment(int p, String d, String de, String date, String t, String c)
+    String D_name, department, Date, Time;
+    appointment(int p, String d, String de, String date, String t)
     {
         this.P_id = p;
         this.D_name = d;
         this.department = de;
         this.Date = date;
         this.Time = t;
-        this.status = c;
     }
     
 }

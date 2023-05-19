@@ -24,6 +24,7 @@ public interface DB {
            return con;
         }
         catch (Exception e) {
+            System.out.println("Hospiatl_System.DB.connection failed");
            return null;
         }
     }

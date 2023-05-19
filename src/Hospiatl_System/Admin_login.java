@@ -31,7 +31,6 @@ public class Admin_login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         mail = new javax.swing.JTextField();
         Login = new javax.swing.JButton();
-        GoRegister = new javax.swing.JLabel();
         Password = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,7 +44,6 @@ public class Admin_login extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Admins");
 
-        Back.setIcon(new javax.swing.ImageIcon("/home/marw/Downloads/left(3).png")); // NOI18N
         Back.setText("jLabel3");
         Back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -89,14 +87,6 @@ public class Admin_login extends javax.swing.JFrame {
             }
         });
 
-        GoRegister.setText("New user ? Register");
-        GoRegister.setPreferredSize(new java.awt.Dimension(180, 30));
-        GoRegister.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                GoRegisterMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -113,14 +103,9 @@ public class Admin_login extends javax.swing.JFrame {
                     .addComponent(Password))
                 .addGap(23, 23, 23))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(180, 180, 180))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(GoRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(140, 140, 140))))
+                .addContainerGap(171, Short.MAX_VALUE)
+                .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(180, 180, 180))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,9 +121,7 @@ public class Admin_login extends javax.swing.JFrame {
                     .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(GoRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,13 +174,6 @@ public class Admin_login extends javax.swing.JFrame {
         
     }//GEN-LAST:event_LoginActionPerformed
 
-    private void GoRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GoRegisterMouseClicked
-        // TODO add your handling code here:
-        setDefaultCloseOperation(Admin_registration.HIDE_ON_CLOSE);
-        dispose();
-        new Admin_registration().setVisible(true);
-    }//GEN-LAST:event_GoRegisterMouseClicked
-
     private void BackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackMouseClicked
         // TODO add your handling code here:
         setDefaultCloseOperation(Admin_login.HIDE_ON_CLOSE);
@@ -247,7 +223,6 @@ public class Admin_login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Back;
-    private javax.swing.JLabel GoRegister;
     private javax.swing.JButton Login;
     private javax.swing.JPasswordField Password;
     private javax.swing.JLabel jLabel1;

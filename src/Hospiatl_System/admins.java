@@ -4,7 +4,6 @@
  */
 package Hospiatl_System;
 
-import com.mysql.cj.protocol.Resultset;
 import java.awt.Component;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -65,7 +64,7 @@ public class admins implements  DB{
         if (CheckRegistartionEmail(this.email))
         {
             try {
-                String adminsql = "insert into Admins(Name,Email,PASS) values(?,?,?)";
+                    String adminsql = "insert into Admins(Name,Email,PASS) values(?,?,?)";
                 PreparedStatement insert = con.prepareStatement(adminsql);
                 insert.setString(1, this.name);
                 insert.setString(2, this.email);

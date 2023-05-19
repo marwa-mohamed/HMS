@@ -4,11 +4,8 @@
  */
 package Hospiatl_System;
 
-import static Hospiatl_System.Doctor.con;
 import static Hospiatl_System.Patient_profile.appointment_id;
-import com.mysql.cj.protocol.Resultset;
 import java.awt.Component;
-import java.awt.image.DataBufferDouble;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,7 +19,7 @@ public class Patient implements DB{
 
     private static Component Patient_Registration;
     private static Component Patient_profile;
-    private String address,mobile,blood,password,name,pass,email,gender;
+    private String address,mobile,blood,name,pass,email,gender;
     private int age;
     static Connection con;
     private static ResultSet rs;
@@ -38,8 +35,9 @@ public class Patient implements DB{
         this.blood = blood;
         this.age = age;
         this.gender = gender;
-       
     }
+    
+    
     
     private static void count()
     {
@@ -70,10 +68,10 @@ public class Patient implements DB{
             insert.setString(5, a.email);
             insert.setString(6, a.mobile);
             insert.setString(7, a.address);
-            insert.setString(8, a.password);
+            insert.setString(8, a.pass);
             insert.executeUpdate();
             JOptionPane.showMessageDialog(Patient_Registration, "Patient added successfuly");
-            return false;
+            return true;
         }
         catch (Exception e)
         {
@@ -179,7 +177,7 @@ public class Patient implements DB{
             rs.updateString(4, a.department);
             rs.updateString(5, a.Date);
             rs.updateString(6, a.Time);
-            rs.updateString(7, a.status);
+//            rs.updateString(7, a.status);
             rs.updateRow();
             JOptionPane.showMessageDialog(Patient_profile, "Appointment Updated successfuly");  
         } catch (SQLException ex) {
@@ -187,17 +185,17 @@ public class Patient implements DB{
         }
     }
     
-    public static void BookAppointmetn(appointment a)
+    private static void BookAppointmetn(appointment a)
     {
         try {
-            String sqlApp = "insert into Appointments(P_ID,D_Name,Department,Date,Time, status) values(?,?,?,?,?,?)";
+            String sqlApp = "insert into Appointments(P_ID,D_Name,Department,Date,Time) values(?,?,?,?,?)";
             PreparedStatement insert = Patient.con.prepareStatement(sqlApp);
             insert.setInt(1, a.P_id);
             insert.setString(2, a.D_name);
             insert.setString(3, a.department);
             insert.setString(4, a.Date);
             insert.setString(5, a.Time);
-            insert.setString(6, a.status);
+//            insert.setString(6, a.status);
             insert.executeUpdate();
             JOptionPane.showMessageDialog(Patient_profile, "Appointment Booked successfuly");
             count();
@@ -205,5 +203,23 @@ public class Patient implements DB{
             Logger.getLogger(Patient.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public static void checkappointment(appointment a)
+    {
+        try {
+            String sqlApp = "SELECT COUNT(*) FROM Appointments WHERE Date = (?) AND Time = (?) AND D_Name = (?)";
+            PreparedStatement search = Patient.con.prepareStatement(sqlApp, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            search.setString(1, a.Date);
+            search.setString(2, a.Time);
+            search.setString(3, a.Time);
+            ResultSet result = search.executeQuery();
+            if (result.next())
+            JOptionPane.showMessageDialog(Patient_profile, "This appointment is already booked, choose another date");
+            else
+                BookAppointmetn(a);
+        } catch (SQLException ex) {
+            Logger.getLogger(Patient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }   
         
 }
